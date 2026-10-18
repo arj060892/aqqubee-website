@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aqqubee Solutions | Software, Cloud &amp; Digital Marketing</title>
+  <meta name="description" content="Aqqubee Solutions is a technology consultancy from Kerala, India, delivering software development, Azure cloud consulting, digital marketing and IT staffing to clients in India, the UK, New Zealand and South Africa.">
+  <meta property="og:title" content="Aqqubee Solutions">
+  <meta property="og:description" content="Software, cloud and digital marketing services for growing businesses in India, the UK, New Zealand and South Africa.">
+  <meta property="og:url" content="https://www.aqqubee.com/">
+  <meta name="theme-color" content="#0b1f3a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f3a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='36' fill='%2322d3a6'%3EA%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --navy-2: #12305a;
+      --accent: #22d3a6;
+      --accent-dark: #12a882;
+      --ink: #1d2733;
+      --muted: #5f6b7a;
+      --soft: #f4f7fb;
+      --bs-body-font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --bs-body-color: var(--ink);
+    }
+    html { scroll-padding-top: 76px; }
+    body { -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5 { font-weight: 700; letter-spacing: -0.02em; }
+    .text-muted-2 { color: var(--muted); }
+    .section { padding: 96px 0; }
+    .section-soft { background: var(--soft); }
+    .eyebrow {
+      display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent-dark); margin-bottom: .75rem;
+    }
+
+    /* Navbar */
+    .navbar { transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease; padding: 18px 0; }
+    .navbar.scrolled { background: rgba(11, 31, 58, .96); box-shadow: 0 6px 24px rgba(0,0,0,.15); padding: 10px 0; backdrop-filter: blur(8px); }
+    .navbar-brand { font-weight: 800; letter-spacing: -0.02em; }
+    .brand-mark {
+      display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 9px;
+      background: var(--accent); color: var(--navy); font-weight: 800; margin-right: 10px;
+    }
+    .navbar .nav-link { color: rgba(255,255,255,.8); font-weight: 500; margin: 0 .35rem; }
+    .navbar .nav-link:hover, .navbar .nav-link.active { color: #fff; }
+    @media (max-width: 991.98px) {
+      .navbar-collapse { background: var(--navy); margin-top: 12px; padding: 12px 16px; border-radius: 12px; }
+    }
+
+    /* Buttons */
+    .btn-accent { background: var(--accent); color: var(--navy); font-weight: 600; border: 0; }
+    .btn-accent:hover, .btn-accent:focus { background: #3ee6bb; color: var(--navy); transform: translateY(-1px); }
+    .btn-outline-light { font-weight: 600; }
+    .btn { transition: all .2s ease; padding: .7rem 1.4rem; border-radius: 10px; }
+
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden; color: #fff; padding: 170px 0 120px;
+      background: radial-gradient(1200px 600px at 85% -10%, rgba(34,211,166,.25), transparent 60%),
+                  radial-gradient(900px 500px at -10% 110%, rgba(56,132,255,.25), transparent 60%),
+                  linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 48px 48px; mask-image: linear-gradient(to bottom, #000 30%, transparent 90%);
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.1; }
+    .hero .lead { color: rgba(255,255,255,.78); max-width: 560px; }
+    .rotator { color: var(--accent); display: inline-block; min-width: 1ch; border-right: 3px solid var(--accent); padding-right: 4px; animation: caret 1s step-end infinite; }
+    @keyframes caret { 50% { border-color: transparent; } }
+    .hero-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px;
+      padding: 28px; backdrop-filter: blur(6px);
+    }
+    .hero-card .stat { font-size: 2rem; font-weight: 800; color: #fff; line-height: 1; }
+    .hero-card .stat-label { color: rgba(255,255,255,.7); font-size: .9rem; }
+    .flag-pill {
+      display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); font-size: .9rem; margin: 4px;
+    }
+
+    /* Services */
+    .service-card {
+      border: 1px solid #e6ebf2; border-radius: 16px; padding: 30px; height: 100%; background: #fff;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(11,31,58,.10); border-color: transparent; }
+    .icon-badge {
+      width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-size: 1.5rem;
+      background: rgba(34,211,166,.12); color: var(--accent-dark); margin-bottom: 18px; transition: all .25s ease;
+    }
+    .service-card:hover .icon-badge { background: var(--accent); color: var(--navy); transform: rotate(-6deg) scale(1.05); }
+    .service-card ul { padding-left: 0; list-style: none; margin: 16px 0 0; }
+    .service-card li { color: var(--muted); font-size: .95rem; padding: 3px 0; }
+    .service-card li i { color: var(--accent-dark); margin-right: 8px; }
+
+    /* Tabs: why us */
+    .nav-pills .nav-link { color: var(--ink); font-weight: 600; border-radius: 10px; padding: .7rem 1.1rem; }
+    .nav-pills .nav-link.active { background: var(--navy); }
+    .tab-panel-card { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #e6ebf2; }
+
+    /* Process */
+    .step { position: relative; padding-left: 64px; margin-bottom: 32px; }
+    .step-num {
+      position: absolute; left: 0; top: 0; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 700;
+    }
+    .step:not(:last-child)::before {
+      content: ""; position: absolute; left: 21px; top: 50px; bottom: -26px; width: 2px; background: #dbe3ee;
+    }
+
+    /* Regions */
+    .region-card {
+      border-radius: 16px; padding: 26px; background: #fff; border: 1px solid #e6ebf2; height: 100%;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .region-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(11,31,58,.08); }
+    .region-flag { font-size: 2rem; line-height: 1; }
+
+    /* FAQ */
+    .accordion-button { font-weight: 600; padding: 1.15rem 1.25rem; }
+    .accordion-button:not(.collapsed) { background: rgba(34,211,166,.10); color: var(--navy); box-shadow: none; }
+    .accordion-button:focus { box-shadow: 0 0 0 .2rem rgba(34,211,166,.25); }
+    .accordion-item { border-radius: 12px !important; overflow: hidden; margin-bottom: 12px; border: 1px solid #e6ebf2; }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; border-radius: 24px;
+      padding: 56px 40px; position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: ""; position: absolute; width: 380px; height: 380px; right: -120px; top: -160px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,211,166,.35), transparent 70%);
+    }
+    .cta > * { position: relative; }
+    .copy-btn { cursor: pointer; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,.7); }
+    footer a { color: rgba(255,255,255,.85); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .rotator { animation: none; }
+      * { scroll-behavior: auto !important; }
+    }
+
+    #toTop {
+      position: fixed; right: 20px; bottom: 20px; width: 46px; height: 46px; border-radius: 50%;
+      border: 0; background: var(--accent); color: var(--navy); font-size: 1.2rem; z-index: 1030;
+      box-shadow: 0 8px 20px rgba(0,0,0,.18); opacity: 0; pointer-events: none; transition: opacity .3s ease;
+    }
+    #toTop.show { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
+
+  <!-- Navbar -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#home"><span class="brand-mark">A</span>Aqqubee Solutions</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">Why us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">How we work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#regions">Where we work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0"><a class="btn btn-accent btn-sm px-3" href="#contact">Get in touch</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 reveal">
+          <span class="eyebrow" style="color: var(--accent);">Technology consultancy · Kerala, India</span>
+          <h1 class="mb-4">We help growing businesses with<br><span class="rotator" id="rotator">software development</span></h1>
+          <p class="lead mb-4">Aqqubee Solutions brings over a decade of hands-on experience in enterprise software engineering, Microsoft Azure and digital advertising to clients in India, the UK, New Zealand and South Africa.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#contact" class="btn btn-accent btn-lg">Start a project <i class="bi bi-arrow-right ms-1"></i></a>
+            <a href="#services" class="btn btn-outline-light btn-lg">Explore services</a>
+          </div>
+        </div>
+        <div class="col-lg-5 reveal">
+          <div class="hero-card">
+            <div class="row text-center g-4">
+              <div class="col-6">
+                <div class="stat"><span class="counter" data-target="10">0</span>+</div>
+                <div class="stat-label">Years of experience</div>
+              </div>
+              <div class="col-6">
+                <div class="stat"><span class="counter" data-target="4">0</span></div>
+                <div class="stat-label">Countries served</div>
+              </div>
+              <div class="col-6">
+                <div class="stat"><span class="counter" data-target="4">0</span></div>
+                <div class="stat-label">Core service lines</div>
+              </div>
+              <div class="col-6">
+                <div class="stat">24h</div>
+                <div class="stat-label">Reply time</div>
+              </div>
+            </div>
+            <hr class="border-light opacity-25 my-4">
+            <div class="text-center">
+              <span class="flag-pill">🇮🇳 India</span>
+              <span class="flag-pill">🇬🇧 United Kingdom</span>
+              <span class="flag-pill">🇳🇿 New Zealand</span>
+              <span class="flag-pill">🇿🇦 South Africa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow">What we do</span>
+        <h2 class="display-6">Services built around your goals</h2>
+        <p class="text-muted-2 mx-auto" style="max-width: 620px;">From building your product to getting it in front of the right audience, we cover the full journey, or plug in exactly where you need help.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="service-card">
+            <div class="icon-badge"><i class="bi bi-code-slash"></i></div>
+            <h5>Software development</h5>
+            <p class="text-muted-2 mb-0">Custom web applications and enterprise systems, from design through to delivery and support.</p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i>C# / .NET full stack</li>
+              <li><i class="bi bi-check2-circle"></i>Modern front-end UIs</li>
+              <li><i class="bi bi-check2-circle"></i>APIs &amp; integrations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="service-card">
+            <div class="icon-badge"><i class="bi bi-cloud-check"></i></div>
+            <h5>Azure cloud consulting</h5>
+            <p class="text-muted-2 mb-0">Run your applications reliably, securely and cost-effectively on Microsoft Azure.</p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i>Architecture &amp; migration</li>
+              <li><i class="bi bi-check2-circle"></i>DevOps &amp; CI/CD pipelines</li>
+              <li><i class="bi bi-check2-circle"></i>Cost optimisation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="service-card">
+            <div class="icon-badge"><i class="bi bi-graph-up-arrow"></i></div>
+            <h5>Digital marketing</h5>
+            <p class="text-muted-2 mb-0">Reach the right audience and measure what works, with campaigns grounded in data.</p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i>SEO &amp; paid advertising</li>
+              <li><i class="bi bi-check2-circle"></i>Ad operations (Google Ad Manager)</li>
+              <li><i class="bi bi-check2-circle"></i>Analytics with GA4</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="service-card">
+            <div class="icon-badge"><i class="bi bi-people"></i></div>
+            <h5>IT staffing &amp; consulting</h5>
+            <p class="text-muted-2 mb-0">Experienced remote developers and consultants who join your team on a contract basis.</p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i>Short projects or long-term</li>
+              <li><i class="bi bi-check2-circle"></i>Works in your time zone</li>
+              <li><i class="bi bi-check2-circle"></i>Flexible engagement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us (interactive tabs) -->
+  <section id="why" class="section section-soft">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 reveal">
+          <span class="eyebrow">Why Aqqubee</span>
+          <h2 class="display-6 mb-3">Senior expertise, without the agency overhead</h2>
+          <p class="text-muted-2">You work directly with experienced engineers and marketers who have delivered for enterprise clients across four countries. Pick a topic to see what that means for you.</p>
+        </div>
+        <div class="col-lg-7 reveal">
+          <ul class="nav nav-pills mb-3 flex-wrap gap-2" id="whyTabs" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#why-1" type="button" role="tab" aria-selected="true"><i class="bi bi-award me-1"></i>Experience</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#why-2" type="button" role="tab" aria-selected="false"><i class="bi bi-globe2 me-1"></i>Global reach</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#why-3" type="button" role="tab" aria-selected="false"><i class="bi bi-chat-dots me-1"></i>Communication</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#why-4" type="button" role="tab" aria-selected="false"><i class="bi bi-wallet2 me-1"></i>Value</button></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="why-1" role="tabpanel">
+              <div class="tab-panel-card">
+                <h5><i class="bi bi-award text-success me-2"></i>A decade of hands-on delivery</h5>
+                <p class="text-muted-2 mb-0">Over ten years building enterprise software on .NET and Azure, plus real-world experience running ad operations and digital campaigns. We understand both the technology and the business side.</p>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="why-2" role="tabpanel">
+              <div class="tab-panel-card">
+                <h5><i class="bi bi-globe2 text-success me-2"></i>Working across four markets</h5>
+                <p class="text-muted-2 mb-0">We support clients in India, the United Kingdom, New Zealand and South Africa, and we know how to work across time zones so your project keeps moving.</p>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="why-3" role="tabpanel">
+              <div class="tab-panel-card">
+                <h5><i class="bi bi-chat-dots text-success me-2"></i>Clear, direct communication</h5>
+                <p class="text-muted-2 mb-0">One point of contact, regular progress updates and honest advice. We reply to every enquiry within one business day.</p>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="why-4" role="tabpanel">
+              <div class="tab-panel-card">
+                <h5><i class="bi bi-wallet2 text-success me-2"></i>Senior quality at fair rates</h5>
+                <p class="text-muted-2 mb-0">A lean, remote-first team means you get senior-level work without large agency overheads, on fixed-price or time-and-materials terms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5 reveal">
+          <span class="eyebrow">How we work</span>
+          <h2 class="display-6 mb-3">A simple, transparent process</h2>
+          <p class="text-muted-2">Every engagement follows the same clear steps, so you always know where things stand and what comes next.</p>
+          <a href="#contact" class="btn btn-accent mt-2">Book a free consultation</a>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h5>Discover</h5>
+            <p class="text-muted-2 mb-0">A free call to understand your goals, constraints and timelines.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h5>Plan</h5>
+            <p class="text-muted-2 mb-0">A clear proposal covering scope, approach, cost and milestones.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h5>Deliver</h5>
+            <p class="text-muted-2 mb-0">Work in short cycles with regular demos and progress updates.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h5>Support &amp; grow</h5>
+            <p class="text-muted-2 mb-0">Ongoing support, improvements and reporting once you're live.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regions -->
+  <section id="regions" class="section section-soft">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow">Where we work</span>
+        <h2 class="display-6">Serving clients across four countries</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="region-card">
+            <div class="region-flag mb-3">🇮🇳</div>
+            <h5>India</h5>
+            <p class="text-muted-2 mb-0">Our home base in Thiruvananthapuram, Kerala, serving businesses across India.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="region-card">
+            <div class="region-flag mb-3">🇬🇧</div>
+            <h5>United Kingdom</h5>
+            <p class="text-muted-2 mb-0">Software and cloud projects for UK organisations, with overlapping working hours.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="region-card">
+            <div class="region-flag mb-3">🇳🇿</div>
+            <h5>New Zealand</h5>
+            <p class="text-muted-2 mb-0">Digital marketing, ad operations and development support for NZ businesses.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="region-card">
+            <div class="region-flag mb-3">🇿🇦</div>
+            <h5>South Africa</h5>
+            <p class="text-muted-2 mb-0">Development, cloud and staffing support for South African companies, in a close time zone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container" style="max-width: 860px;">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display-6">Common questions</h2>
+      </div>
+      <div class="accordion reveal" id="faqAccordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true">What kinds of projects do you take on?</button></h3>
+          <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted-2">Web applications, internal business systems, Azure cloud setups and migrations, digital marketing campaigns and analytics, and contract developers to extend your team. Small or large, get in touch and we'll tell you honestly whether we're a good fit.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false">Do you work with clients outside India?</button></h3>
+          <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted-2">Yes. We work remotely with clients in the United Kingdom, New Zealand and South Africa as well as India, and we arrange meetings around your time zone.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3" aria-expanded="false">How is pricing structured?</button></h3>
+          <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted-2">We offer fixed-price quotes for clearly defined projects and time-and-materials or monthly retainers for ongoing work and staffing. You'll get a clear proposal before any work begins.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4" aria-expanded="false">How quickly can you start?</button></h3>
+          <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted-2">Usually within one to two weeks of agreeing the scope. For urgent needs, let us know and we'll do our best to start sooner.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5" aria-expanded="false">How do I get started?</button></h3>
+          <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted-2">Email us at <a href="mailto:contact@aqqubee.com">contact@aqqubee.com</a> with a few lines about what you need. We'll reply within one business day to arrange a free call.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section id="contact" class="pb-5">
+    <div class="container">
+      <div class="cta reveal">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h2 class="display-6 mb-3">Let's build something together</h2>
+            <p class="mb-0" style="color: rgba(255,255,255,.78);">Have a project in mind or need extra hands on your team? Send us a note and we'll get back to you within one business day.</p>
+          </div>
+          <div class="col-lg-5 text-lg-end">
+            <a href="mailto:contact@aqqubee.com?subject=Project%20enquiry" class="btn btn-accent btn-lg mb-2"><i class="bi bi-envelope me-2"></i>contact@aqqubee.com</a>
+            <div>
+              <button type="button" class="btn btn-link text-white-50 copy-btn p-0" id="copyEmail"><i class="bi bi-clipboard me-1"></i><span>Copy email address</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 mt-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center text-white fw-bold mb-2"><span class="brand-mark">A</span>Aqqubee Solutions</div>
+          <small>Thiruvananthapuram, Kerala, India · Serving India, the UK, New Zealand &amp; South Africa</small>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#services" class="me-3">Services</a>
+          <a href="#faq" class="me-3">FAQ</a>
+          <a href="mailto:contact@aqqubee.com">contact@aqqubee.com</a>
+          <div class="mt-2"><small>© <span id="year"></span> Aqqubee Solutions. All rights reserved.</small></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Navbar background + back-to-top on scroll
+      var nav = document.getElementById('mainNav');
+      var toTop = document.getElementById('toTop');
+      function onScroll() {
+        var y = window.scrollY;
+        nav.classList.toggle('scrolled', y > 40);
+        toTop.classList.toggle('show', y > 600);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+      // Close mobile menu after clicking a link
+      document.querySelectorAll('#navMenu a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          var menu = document.getElementById('navMenu');
+          if (menu.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(menu).hide();
+        });
+      });
+
+      // Reveal on scroll
+      var items = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !reduce) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add('in'); });
+      }
+
+      // Counters
+      document.querySelectorAll('.counter').forEach(function (el) {
+        var target = parseInt(el.dataset.target, 10);
+        if (reduce) { el.textContent = target; return; }
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / 1400, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        }
+        setTimeout(function () { requestAnimationFrame(step); }, 400);
+      });
+
+      // Typing rotator
+      var words = ['software development', 'Azure cloud', 'digital marketing', 'IT staffing'];
+      var r = document.getElementById('rotator');
+      if (!reduce) {
+        var wi = 0, ci = words[0].length, deleting = true;
+        setTimeout(function tick() {
+          var w = words[wi];
+          if (deleting) {
+            ci--; r.textContent = w.slice(0, ci);
+            if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+            setTimeout(tick, 45);
+          } else {
+            var nw = words[wi]; ci++; r.textContent = nw.slice(0, ci);
+            if (ci === nw.length) { deleting = true; setTimeout(tick, 2200); } else { setTimeout(tick, 80); }
+          }
+        }, 2200);
+      }
+
+      // Copy email
+      var copyBtn = document.getElementById('copyEmail');
+      copyBtn.addEventListener('click', function () {
+        var label = copyBtn.querySelector('span');
+        function done(msg) { label.textContent = msg; setTimeout(function () { label.textContent = 'Copy email address'; }, 2000); }
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText('contact@aqqubee.com').then(function () { done('Copied!'); }, function () { done('contact@aqqubee.com'); });
+        } else { done('contact@aqqubee.com'); }
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
